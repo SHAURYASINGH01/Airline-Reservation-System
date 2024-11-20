@@ -1,4 +1,4 @@
-package com.dhanush.airline.dao;
+package com.airline.dao;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
