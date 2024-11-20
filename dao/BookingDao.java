@@ -7,7 +7,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
-import com.dhanush.airline.entity.BookingRecord;
+import com.airline.entity.BookingRecord;
 
 @Repository
 public interface BookingDao extends JpaRepository<BookingRecord, Long>{
