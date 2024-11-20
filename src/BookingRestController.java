@@ -1,4 +1,4 @@
-package com.dhanush.airline.controller;
+package com.airline.controller;
 
 import java.util.List;
 
