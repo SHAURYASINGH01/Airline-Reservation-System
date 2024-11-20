@@ -1,4 +1,4 @@
-package com.dhanush.airline.controller;
+package com.airline.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
