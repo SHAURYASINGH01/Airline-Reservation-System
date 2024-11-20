@@ -1,4 +1,4 @@
-package com.dhanush.airline.controller;
+package com.airline.controller;
 
 import java.time.Instant;
 import java.time.LocalDate;
