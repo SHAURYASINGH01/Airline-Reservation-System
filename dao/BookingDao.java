@@ -1,4 +1,4 @@
-package com.dhanush.airline.dao;
+package com.airline.dao;
 
 import java.util.List;
 
