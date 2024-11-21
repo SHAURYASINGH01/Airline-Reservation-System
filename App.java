@@ -1,4 +1,4 @@
-package com.dhanush.airline;
+package com.airline;
 
 import java.text.ParseException;
 import java.time.LocalDate;
@@ -19,19 +19,19 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 import org.springframework.data.jpa.repository.Query;
 
-import com.dhanush.airline.dao.AirlineInfoDao;
-import com.dhanush.airline.dao.FlightDao;
-import com.dhanush.airline.entity.AirlineInfo;
-import com.dhanush.airline.entity.BookingRecord;
-import com.dhanush.airline.entity.Fare;
-import com.dhanush.airline.entity.Flight;
-import com.dhanush.airline.entity.FlightInfo;
-import com.dhanush.airline.entity.Inventory;
-import com.dhanush.airline.entity.Passenger;
-import com.dhanush.airline.service.AirlineInfoService;
-import com.dhanush.airline.service.BookingService;
-import com.dhanush.airline.service.FlightService;
-import com.dhanush.airline.service.PassengerService;
+import com.airline.dao.AirlineInfoDao;
+import com.airline.dao.FlightDao;
+import com.airline.entity.AirlineInfo;
+import com.airline.entity.BookingRecord;
+import com.airline.entity.Fare;
+import com.airline.entity.Flight;
+import com.airline.entity.FlightInfo;
+import com.airline.entity.Inventory;
+import com.airline.entity.Passenger;
+import com.airline.service.AirlineInfoService;
+import com.airline.service.BookingService;
+import com.airline.service.FlightService;
+import com.airline.service.PassengerService;
 
 @SpringBootApplication
 public class App {
