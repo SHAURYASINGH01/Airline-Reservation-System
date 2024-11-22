@@ -1,9 +1,0 @@
-CREATE TABLE Bookings (
-    booking_id INT AUTO_INCREMENT PRIMARY KEY,
-    passenger_id INT NOT NULL,
-    flight_id INT NOT NULL,
-    booking_date DATETIME DEFAULT CURRENT_TIMESTAMP,
-    status ENUM('Booked', 'Cancelled', 'Confirmed') DEFAULT 'Booked',
-    FOREIGN KEY (passenger_id) REFERENCES Passengers(passenger_id),
-    FOREIGN KEY (flight_id) REFERENCES Flights(flight_id)
-);

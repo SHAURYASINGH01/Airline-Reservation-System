@@ -1,7 +1,0 @@
-CREATE TABLE Airports (
-    airport_id INT AUTO_INCREMENT PRIMARY KEY,
-    airport_name VARCHAR(100) NOT NULL,
-    city VARCHAR(100) NOT NULL,
-    country VARCHAR(100) NOT NULL,
-    airport_code VARCHAR(10) NOT NULL UNIQUE
-);
