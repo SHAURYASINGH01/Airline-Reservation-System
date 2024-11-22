@@ -1,0 +1,11 @@
+CREATE TABLE Flights (
+    flight_id INT AUTO_INCREMENT PRIMARY KEY,
+    flight_number VARCHAR(20) NOT NULL UNIQUE,
+    departure_airport VARCHAR(100) NOT NULL,
+    arrival_airport VARCHAR(100) NOT NULL,
+    departure_time DATETIME NOT NULL,
+    arrival_time DATETIME NOT NULL,
+    price DECIMAL(10, 2) NOT NULL,
+    seats_available INT NOT NULL,
+    status ENUM('Scheduled', 'Cancelled', 'Delayed') DEFAULT 'Scheduled'
+);
