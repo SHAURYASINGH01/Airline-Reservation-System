@@ -1,0 +1,22 @@
+@WebServlet("/user")
+public class UserServlet extends HttpServlet {
+
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String action = request.getParameter("action");
+
+        if ("viewProfile".equals(action)) {
+            // Retrieve user profile and forward to JSP
+            request.setAttribute("user", user);  // Assuming `user` is fetched from database
+            request.getRequestDispatcher("/profile.jsp").forward(request, response);
+        }
+    }
+
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String name = request.getParameter("name");
+        String email = request.getParameter("email");
+        
+        // Handle user registration, save data to the database
+        // After that, redirect to user profile page
+        response.sendRedirect("/user?action=viewProfile");
+    }
+}
