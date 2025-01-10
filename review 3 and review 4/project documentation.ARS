@@ -1,0 +1,195 @@
+#Table of Contents
+Project Overview
+Features
+Technology Stack
+System Architecture
+Modules
+Database Design
+User Interface
+Code Structure
+Installation & Setup
+Usage Instructions
+Testing
+Future Enhancements
+Conclusion
+1. Project Overview
+The Airline Reservation System is a desktop-based application developed in Java using JavaFX for the graphical user interface (GUI). The system automates the process of booking, searching, and managing flight reservations. It caters to two types of users: Customers and Admin. Customers can search for flights, make bookings, and manage their reservations. Admins can manage flight data, view customer bookings, and perform administrative tasks. The system also ensures the proper management of seat availability, bookings, and flight schedules.
+
+2. Features
+Customer Features:
+Flight Search: Search flights based on source, destination, date, and other filters.
+Booking: Book tickets for available flights.
+Seat Selection: Select seats from available options during the booking process.
+Booking History: View the booking history and details of past trips.
+Cancellation: Cancel existing bookings when necessary.
+Admin Features:
+Flight Management: Add, edit, or remove flight details (flight number, source, destination, schedule, etc.).
+Booking Management: View and manage customer bookings.
+Customer Management: View, modify, or remove customer details.
+Reports: Generate reports on flight bookings, cancellations, and seat availability.
+3. Technology Stack
+Programming Language: Java 8+
+GUI Framework: JavaFX
+Database: MySQL (or SQLite as an alternative)
+Development Environment: IntelliJ IDEA, Eclipse
+Version Control: Git (GitHub or GitLab)
+Build Tool: Maven or Gradle (for dependency management)
+4. System Architecture
+The system follows a Client-Server Architecture:
+
+Frontend (Client): Built using JavaFX, the frontend communicates with the backend (server) through user actions like booking a flight or viewing available flights.
+Backend: The backend is responsible for processing business logic and handling data storage and retrieval from the database.
+Database: A relational database (MySQL or SQLite) stores customer, flight, booking, and schedule data.
+5. Modules
+1. User Authentication Module
+Functionality: Manages user login and registration for both customers and admins.
+Operations:
+User registration (name, email, password, role).
+Login authentication (username and password).
+Role-based access control (Admin vs. Customer).
+2. Flight Management Module
+Functionality: Allows admins to manage flights (adding new flights, editing flight details, removing flights).
+Operations:
+Add, edit, or delete flights.
+View list of available flights with details such as flight number, source, destination, and available seats.
+3. Booking Management Module
+Functionality: Allows customers to book flights and manage their reservations.
+Operations:
+Search available flights based on criteria (source, destination, date).
+Book a flight and select seats.
+View booking details and history.
+Cancel or modify bookings.
+4. Seat Management Module
+Functionality: Ensures the availability of seats and manages seat allocation during the booking process.
+Operations:
+Show available seats for each flight.
+Reserve and release seats when bookings are made or canceled.
+5. Customer Management Module
+Functionality: Admins can manage customer records.
+Operations:
+View customer details (name, email, booking history).
+Modify or remove customer information if necessary.
+6. Reporting and Analytics Module
+Functionality: Provides reports to admins for tracking and analysis.
+Operations:
+Generate reports on flight availability.
+View statistics on bookings and cancellations.
+6. Database Design
+Tables:
+Users
+user_id (INT, Primary Key)
+username (VARCHAR, Unique)
+password (VARCHAR)
+role (ENUM: 'customer', 'admin')
+Flights
+flight_id (INT, Primary Key)
+flight_number (VARCHAR)
+source (VARCHAR)
+destination (VARCHAR)
+departure_date (DATE)
+available_seats (INT)
+Bookings
+booking_id (INT, Primary Key)
+user_id (INT, Foreign Key)
+flight_id (INT, Foreign Key)
+booking_date (DATE)
+seat_number (INT)
+Flight_Schedules
+schedule_id (INT, Primary Key)
+flight_id (INT, Foreign Key)
+departure_time (TIME)
+arrival_time (TIME)
+7. User Interface
+The user interface (UI) is implemented with JavaFX. The main screens include:
+
+Login Screen: User enters their credentials to access either customer or admin functionality.
+Customer Dashboard: The main view for customers to search for flights, book tickets, view booking history, and manage reservations.
+Admin Dashboard: The main view for admins to manage flights, view bookings, and manage customers.
+Flight Search Screen: Customers can search for flights by entering criteria such as departure and destination locations, date, and class.
+Booking Details Screen: Displays booking details, including the flight number, seat information, and cancellation options.
+8. Code Structure
+bash
+Copy code
+/src
+    /controllers
+        UserController.java
+        FlightController.java
+        BookingController.java
+    /models
+        User.java
+        Flight.java
+        Booking.java
+    /views
+        LoginView.fxml
+        CustomerDashboardView.fxml
+        AdminDashboardView.fxml
+        FlightSearchView.fxml
+    /utils
+        DatabaseConnection.java
+        EncryptionUtil.java
+    Main.java
+controllers: Contains classes that manage user interactions with the system, handle button clicks, and update the model.
+models: Defines data models for the system's entities such as User, Flight, and Booking.
+views: FXML files that define the structure and layout of the GUI.
+utils: Contains helper classes such as DatabaseConnection.java for database interactions and EncryptionUtil.java for securely handling passwords.
+Main.java: The main entry point to the application, where the JavaFX application is launched.
+9. Installation & Setup
+Prerequisites:
+Java Development Kit (JDK) 8 or higher.
+MySQL or SQLite installed.
+Integrated Development Environment (IDE) such as IntelliJ IDEA or Eclipse.
+Steps:
+Clone the project from GitHub:
+
+bash
+Copy code
+git clone <repository-url>
+Open the project in your preferred IDE.
+
+Set up the database by creating the required tables in MySQL or SQLite. Ensure the database credentials are configured in the DatabaseConnection.java file.
+
+Run the application using the IDE's "Run" functionality.
+
+The system is now ready for use. Launch the application and test the available features.
+
+10. Usage Instructions
+1. Login:
+Open the application and enter your username and password.
+Select either the Customer or Admin role.
+Click Login to access the appropriate dashboard.
+2. Flight Search:
+From the Customer Dashboard, navigate to the Flight Search screen.
+Enter the departure location, destination, and travel date.
+View available flights and select one for booking.
+3. Booking a Flight:
+Select a flight and choose your desired seat.
+Confirm the booking by clicking Book Now.
+View booking confirmation details.
+4. Admin Features:
+Log in as an admin and navigate to the Admin Dashboard.
+Add, edit, or delete flights from the Flight Management screen.
+Manage customer bookings from the Booking Management screen.
+11. Testing
+Testing of the system includes the following:
+
+Unit Testing: Each module's core functionality (e.g., flight search, booking, and user login) should be unit tested for expected behavior.
+Integration Testing: Ensure all components interact correctly, such as the backend correctly saving booking information in the database and retrieving flight details.
+UI Testing: Test the user interface for usability and ensure all elements are responsive and functional.
+Testing frameworks such as JUnit can be used for unit testing, and TestFX for UI testing.
+
+12. Future Enhancements
+Payment Gateway Integration: Integrate online payment options for flight bookings.
+Mobile Application: Develop a mobile app for iOS/Android that supports flight booking and management.
+Flight Status Tracking: Include real-time flight status, delays, and cancellations.
+User Feedback: Allow customers to rate and review flights after completion.
+13. Conclusion
+The Airline Reservation System is a comprehensive application built with Java and JavaFX to handle flight bookings, cancellations, and management tasks for customers and administrators. The system is scalable, flexible, and can be extended with additional features, such as payment integration, mobile applications, and real-time flight status updates.
+
+The project provides a strong foundation for building more sophisticated airline management systems and can be enhanced to meet the growing needs of users and administrators.
+
+
+
+
+
+
+
