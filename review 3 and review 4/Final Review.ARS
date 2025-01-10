@@ -1,0 +1,95 @@
+1. Project Purpose and Scope
+Strengths:
+The project clearly addresses the primary functionalities required in an airline reservation system, such as flight searching, seat selection, booking management, cancellations, and administrative control.
+It supports both customer and admin roles, with a well-defined separation of concerns between user-facing features (e.g., booking flights) and administrative features (e.g., flight and customer management).
+The use of Java as the core programming language and JavaFX for the GUI ensures platform independence, making it suitable for both Windows and macOS environments.
+Weaknesses:
+The system's scope is somewhat limited in terms of advanced features like dynamic pricing, online payments, or integration with other airline systems (e.g., real-time flight status updates from airlines).
+Mobile responsiveness is not considered. A mobile version could significantly expand the system’s reach.
+Suggestions for Improvement:
+Integrate dynamic pricing based on demand and availability.
+Add a payment gateway to allow customers to complete bookings directly through the system.
+Extend functionality to support international flights and multi-leg bookings.
+Create a mobile app version or a responsive web version to reach a wider audience.
+2. System Architecture
+Strengths:
+The client-server architecture with a dedicated frontend (JavaFX) and backend (Java with MySQL/SQLite) provides a solid foundation for scalability and separation of concerns.
+Database design is well-structured with normalized tables for users, flights, bookings, and schedules, making the data model flexible and scalable.
+Weaknesses:
+The project does not mention integration with third-party APIs for real-time flight information, such as flight delays or seat availability from external sources.
+Concurrency management: If the system experiences high traffic, there could be potential issues with handling multiple users booking the same seat or querying flight availability at the same time.
+Suggestions for Improvement:
+Implement real-time flight data integration with external APIs (e.g., from airlines or flight data providers).
+Add concurrency control mechanisms such as synchronization or locking to handle multiple users making bookings for the same flight or seat at the same time.
+3. User Interface (UI)
+Strengths:
+The JavaFX GUI is a good choice for creating interactive and user-friendly desktop applications.
+Clear distinction between customer and admin dashboards ensures ease of use, and each user role has access to the features they need.
+The search function for flights based on various filters (source, destination, date) is a highly valuable feature for the customer experience.
+Weaknesses:
+The UI design can be made more modern and intuitive with better use of visual design patterns (e.g., material design or flat UI).
+While functionality is present, the overall user experience (UX) could be improved by introducing features like suggested flights, user profile management, or saved preferences for frequent travelers.
+Suggestions for Improvement:
+Enhance the UI to make it more modern by using a better color scheme, more interactive controls, and responsive elements.
+Add filter options for advanced search, such as price range or airline.
+Provide a notification system for users (e.g., reminders for upcoming flights, cancellations, etc.).
+4. Code Structure and Maintainability
+Strengths:
+The project’s modular code structure makes it easy to maintain and extend. The separation of controllers, models, views, and utils promotes clean coding practices and adherence to the MVC architecture.
+Reusability is high since each module is relatively self-contained and only communicates with other modules through well-defined interfaces.
+Weaknesses:
+The project could benefit from more error handling and input validation, especially when dealing with user inputs (e.g., invalid booking dates, incorrect flight data).
+Logging and debugging mechanisms are not mentioned. These could help with troubleshooting issues and tracking user activity, especially in a production environment.
+Suggestions for Improvement:
+Implement logging (e.g., using Log4j or SLF4J) for tracking system activities and errors.
+Add error handling and input validation at both the client and server sides.
+Ensure unit tests and integration tests are created for core modules such as flight booking, seat management, and user authentication.
+5. Database Design
+Strengths:
+The database design is normalized and includes relevant tables for users, flights, bookings, and flight schedules. This ensures efficient querying and data consistency.
+The use of foreign keys ensures referential integrity between the tables (e.g., linking bookings to users and flights).
+Weaknesses:
+The database schema does not account for certain advanced features, such as multiple seat types (economy, business class), flight class, or special pricing rules (e.g., discounts, loyalty points).
+The system could benefit from additional indexing on frequently queried fields like flight_number, source, destination, and departure_date to improve performance.
+Suggestions for Improvement:
+Consider adding tables for seat types and flight class to manage the booking of different seat categories.
+Add indexing on high-demand fields to improve query performance.
+Backup mechanisms should be implemented to ensure data safety, especially considering the importance of flight and booking information.
+6. Security
+Strengths:
+The project ensures basic role-based access control (admin vs. customer).
+Passwords should be encrypted before being stored, which is mentioned in the system design.
+Weaknesses:
+The encryption method for passwords is not detailed. Storing passwords in plain text (even within the project’s database) is a security risk.
+There is no mention of data encryption for sensitive information, such as credit card details or personal information.
+Suggestions for Improvement:
+Use a strong hashing algorithm (e.g., BCrypt) for password storage instead of encryption to ensure password security.
+If handling sensitive data like credit card information, implement TLS (Transport Layer Security) and consider PCI-DSS compliance.
+Implement two-factor authentication (2FA) for users, especially admin users.
+7. Testing
+Strengths:
+The system has a clear modular structure, which makes it conducive to unit testing.
+Weaknesses:
+There is no mention of automated testing (unit, integration, or UI testing).
+The project may lack comprehensive test cases, especially for critical functionalities like booking, cancellation, and seat availability.
+Suggestions for Improvement:
+Write unit tests for the core business logic.
+Implement integration tests to test interactions between modules.
+Use UI testing frameworks (e.g., TestFX for JavaFX) to test the GUI.
+8. Performance and Scalability
+Strengths:
+The system’s client-server architecture allows for scalability, particularly when more users and flights are added to the system.
+Weaknesses:
+The application might face performance issues when dealing with a high volume of users (e.g., simultaneous bookings for the same flight).
+The system currently does not handle asynchronous tasks, such as fetching flight data or handling bookings concurrently.
+Suggestions for Improvement:
+Consider implementing asynchronous programming for long-running tasks such as querying the database or processing bookings.
+Implement load testing to simulate real-world traffic and ensure the system can handle large numbers of concurrent users.
+Conclusion
+The Airline Reservation System provides a robust base for managing flight bookings, cancellations, and administrative tasks. While the system covers the core functionalities expected from such a platform, there are areas for improvement in security, scalability, usability, and advanced features like payment integration and mobile support.
+
+By addressing these weaknesses and adding more sophisticated features, the system can be made more resilient, user-friendly, and production-ready, providing a comprehensive solution to users and administrators alike.
+
+
+
+
